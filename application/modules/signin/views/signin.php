@@ -142,7 +142,7 @@
                                         <div class="alert alert-warning">Maaf <b>Status User anda</b> di Non-Aktifkan, Silakan hubungi administrator!</div>
                                     </div>
                                 <?php endif; ?>
-                                <form action="<?= base_url('SignIn/check_signin'); ?>" class="mt-5 mb-5 login-input" method="POST">
+                                <form action="<?= base_url('signin/check_signin'); ?>" class="mt-5 mb-5 login-input" method="POST">
                                     <div class="form-group">
                                         <label for="Username">Username</label>
                                         <div class="input-group">
