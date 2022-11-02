@@ -1,15 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class NBC
-extends CI_Controller
+class nbc extends CI_Controller
 {
 
   public function __construct()
   {
     parent::__construct();
     //LOAD MODELS
-    $this->load->model('M_nbc');
+    $this->load->model('m_nbc');
   }
 
   public function index()

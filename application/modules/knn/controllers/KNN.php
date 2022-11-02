@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class KNN extends CI_Controller
+class knn extends CI_Controller
 {
 
   public function __construct()
   {
     parent::__construct();
     //LOAD MODELS
-    $this->load->model('M_knn');
+    $this->load->model('m_knn');
   }
 
   public function index()

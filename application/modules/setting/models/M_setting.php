@@ -1,4 +1,4 @@
 <?php
-class M_setting extends CI_Model {
-
+class m_setting extends CI_Model
+{
 }

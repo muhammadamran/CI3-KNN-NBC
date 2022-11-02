@@ -1,4 +1,4 @@
 <?php
-class M_nbc extends CI_Model {
-
+class m_nbc extends CI_Model
+{
 }

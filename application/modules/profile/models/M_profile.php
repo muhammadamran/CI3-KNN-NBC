@@ -1,5 +1,5 @@
 <?php
-class M_profile extends CI_Model {
+class m_profile extends CI_Model {
 
 	public function update_pegawai($table,$dataUsers,$ID)
 	{
@@ -22,4 +22,3 @@ class M_profile extends CI_Model {
     }
 
 }
-?>

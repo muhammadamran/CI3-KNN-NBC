@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Setting extends CI_Controller
+class setting extends CI_Controller
 {
 
   public function __construct()
   {
     parent::__construct();
     //LOAD MODELS
-    $this->load->model('M_setting');
+    $this->load->model('m_setting');
   }
 
   public function index()

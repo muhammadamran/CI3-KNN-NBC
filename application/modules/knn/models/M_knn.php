@@ -1,4 +1,4 @@
 <?php
-class M_knn extends CI_Model {
-
+class m_knn extends CI_Model
+{
 }

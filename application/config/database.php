@@ -76,15 +76,15 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	// DOMAIN
-	'hostname' => 'localhost',
-	'username' => 'muhk5354_project',
-	'password' => '#Pr0j3ct!',
-	'database' => 'muhk5354_appstm',
-	// LOCAL
 	// 'hostname' => 'localhost',
-	// 'username' => 'root',
-	// 'password' => '',
-	// 'database' => 'pro_appstm',
+	// 'username' => 'muhk5354_project',
+	// 'password' => '#Pr0j3ct!',
+	// 'database' => 'muhk5354_appstm',
+	// LOCAL
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'pro_appstm',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

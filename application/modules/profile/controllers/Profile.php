@@ -1,16 +1,15 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Profile extends CI_Controller
+class profile extends CI_Controller
 {
 
   public function __construct()
   {
     parent::__construct();
     //LOAD MODELS
-    $this->load->model('M_profile');
+    $this->load->model('m_profile');
     $this->load->model('Model_dynamic_dependent', 'Mdependent');
-    $this->load->model('home/M_home');
   }
 
   public function index()
@@ -20,36 +19,8 @@ class Profile extends CI_Controller
     if ($user == NULL) {
 
       $this->session->set_flashdata('f_role', "Anda belum memulai <b>session</b>!, Silahkan mulai <b>session</b> anda!");
-      redirect('login');
+      redirect('signin');
     } else if ($user != NULL) {
-
-      $Tpegawai = $this->M_home->get_total_pegawai();
-      if ($Tpegawai == NULL) {
-        $value['total_pegawai'] = '0';
-      } else {
-        $value['total_pegawai'] = $Tpegawai[0]->total_pegawai;
-      }
-
-      $TSPA = $this->M_home->get_total_spa();
-      if ($TSPA == NULL) {
-        $value['total_SPA'] = '0';
-      } else {
-        $value['total_SPA'] = $TSPA[0]->total_SPA;
-      }
-
-      $TDO = $this->M_home->get_total_do();
-      if ($TDO == NULL) {
-        $value['total_DO'] = '0';
-      } else {
-        $value['total_DO'] = $TDO[0]->total_DO;
-      }
-
-      $TSJ = $this->M_home->get_total_sj();
-      if ($TSJ == NULL) {
-        $value['total_SJ'] = '0';
-      } else {
-        $value['total_SJ'] = $TSJ[0]->total_SJ;
-      }
 
       $value['provinsi'] = $this->Mdependent->get_provinsi();
 
@@ -94,7 +65,7 @@ class Profile extends CI_Controller
       'NoHP' => $this->input->post('NoHP')
     );
 
-    $this->M_profile->update_employee('tbl_employee', $dataUsers, $ID);
+    $this->m_profile->update_employee('tbl_employee', $dataUsers, $ID);
     $this->session->set_flashdata('success', "Data saved successfully!");
     redirect('profile');
   }
@@ -140,7 +111,7 @@ class Profile extends CI_Controller
       'Foto' => $upload
     );
 
-    $this->M_profile->update_employee('tbl_employee', $dataUsers, $ID);
+    $this->m_profile->update_employee('tbl_employee', $dataUsers, $ID);
     $this->session->set_flashdata('success', "Data saved successfully!");
     redirect('profile');
   }
@@ -150,7 +121,7 @@ class Profile extends CI_Controller
   {
     $ID = $this->input->post('username');
     $cek_oldpass = md5(md5($this->input->post('oldpassword')));
-    $validate_oldpass = $this->M_profile->cek_oldpassword($cek_oldpass, $ID);
+    $validate_oldpass = $this->m_profile->cek_oldpassword($cek_oldpass, $ID);
     $get_cek_pass = $value['cek_pass'] = $validate_oldpass[0]->cek_pass;
 
     if ($get_cek_pass == 0) {
@@ -163,7 +134,7 @@ class Profile extends CI_Controller
         'password' => md5(md5($this->input->post('newpassword')))
       );
 
-      $this->M_profile->update_password('bulog_user', $dataUsers, $ID);
+      $this->m_profile->update_password('bulog_user', $dataUsers, $ID);
       $this->session->set_flashdata('success', "Empty!");
       redirect('profile');
     }
