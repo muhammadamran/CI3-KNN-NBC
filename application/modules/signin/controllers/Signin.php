@@ -1,20 +1,20 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Signin extends CI_Controller
+class signin extends CI_Controller
 {
 
 	public function __construct()
 	{
 		parent::__construct();
 		// MODELS
-		$this->load->model('M_signin');
+		$this->load->model('m_signin');
 	}
 
 	public function index()
 	{
 		// GET SETTING
-		$get_setting = $this->M_signin->get_setting();
+		$get_setting = $this->m_signin->get_setting();
 		if ($get_setting == NULL) {
 			$value['icon'] = 'icon.png';
 			$value['logo'] = 'logo.png';
@@ -47,7 +47,7 @@ class Signin extends CI_Controller
 
 		$value['PageTitle'] = 'Sign In';
 
-		$this->load->view('SignIn', $value);
+		$this->load->view('signin', $value);
 	}
 
 	public function check_signin()
@@ -61,30 +61,30 @@ class Signin extends CI_Controller
 				'password' => md5($password),
 			);
 
-			$get_validasi_statususer = $this->M_signin->get_status_user_employee($username);
+			$get_validasi_statususer = $this->m_signin->get_status_user_employee($username);
 			$validasi_statususer_log = $get_validasi_statususer[0]->status_user;
 
 			if ($validasi_statususer_log == '2') {
 				$this->session->set_flashdata('n_signin_nonaktif', "Maaf <b>Status User anda</b> di Non-Aktifkan, Silakan hubungi administrator!");
-				redirect('SignIn');
+				redirect('signin');
 			} else {
 
-				$get_validasi = $this->M_signin->get_employee($username);
+				$get_validasi = $this->m_signin->get_employee($username);
 				$validasi_log = $get_validasi[0]->Login;
 
 				if ($validasi_log == NULL) {
 					$this->session->set_flashdata('n_signin', "Maaf <b>Data anda</b> tidak terdaftar di kepegawaian, Silakan hubungi administrator!");
-					redirect('SignIn');
+					redirect('signin');
 				} else {
 
-					$cek = $this->M_signin->check_signin('tbl_users', $data);
+					$cek = $this->m_signin->check_signin('tbl_users', $data);
 
 					if (@$cek) {
 
 						// GET DATA EMPLOYEE FOR SESSION
-						$get_employee = $this->M_signin->get_employee($cek->username);
+						$get_employee = $this->m_signin->get_employee($cek->username);
 						// GET SETTING
-						$get_setting = $this->M_signin->get_setting();
+						$get_setting = $this->m_signin->get_setting();
 						if ($get_setting == NULL) {
 							$icon = 'icon.png';
 							$logo = 'logo.png';
@@ -189,7 +189,7 @@ class Signin extends CI_Controller
 						redirect('Dashboard');
 					} else {
 						$this->session->set_flashdata('f_sigin', "Maaf <b>Username</b> atau <b>Password</b> Anda salah, Silakan Coba Lagi!");
-						redirect('Signin');
+						redirect('signin');
 					}
 				}
 			}
@@ -198,7 +198,7 @@ class Signin extends CI_Controller
 
 	public function SignOut($username)
 	{
-		$get_validasi = $this->M_signin->get_role($username);
+		$get_validasi = $this->m_signin->get_role($username);
 		$cek_role = $get_validasi[0]->Role;
 
 		$data_log = array(
@@ -210,6 +210,6 @@ class Signin extends CI_Controller
 		$this->db->insert('tbl_log', $data_log);
 		$this->session->sess_destroy();
 		$this->session->set_flashdata('n_gsignin', 'Anda Berhasil SignOut!');
-		redirect('Signin');
+		redirect('signin');
 	}
 }

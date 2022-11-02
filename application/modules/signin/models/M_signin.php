@@ -1,5 +1,5 @@
 <?php
-class M_signin extends CI_Model
+class m_signin extends CI_Model
 {
 
     // GET SETTING APPS
