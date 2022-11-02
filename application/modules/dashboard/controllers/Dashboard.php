@@ -16,7 +16,7 @@ class dashboard extends CI_Controller
     if ($this->session->userdata('username') == NULL) {
 
       $this->session->set_flashdata('f_role', "Anda belum memulai <b>session</b>!, Silahkan mulai <b>session</b> anda!");
-      redirect('Signin');
+      redirect('signin');
     } else if ($this->session->userdata('username') != NULL) {
 
       $value['PageTitle'] = 'Dashboard';
