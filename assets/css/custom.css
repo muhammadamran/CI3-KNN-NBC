@@ -1,0 +1,62 @@
+.icon-header{
+  width: 200px;
+}
+.logo-header {
+  width: 180px;
+}
+.point {
+  background: linear-gradient(230deg, #5c84ff, #005cac);
+  padding: 4px 4px 4px 4px;
+  border-radius: 25%;
+  color: #fff;
+  height: 1.25rem;
+  width: 1.25rem;
+  font-size: 0.75rem;
+  right: 5px;
+  top: -5px;
+}
+.page-titles {
+    padding: 15px 10px 15px 10px;
+    background: #ffffff;
+    transition: all .2s ease;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    /* right: -15px; */
+    /* margin-left: -15px; */
+    margin-right: 151px;
+    border-radius: 0px;
+    box-shadow: 6px 11px 41px -28px #a99de7;
+}
+
+.page-title-bar {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+
+.page-title-bar-icon {
+  padding: 10px;
+  background: linear-gradient(45deg, #8e9abf, #8e9abf);
+  border-radius: 5px;
+  font-size: 20px;
+  color: #fff;
+  box-shadow: 2px 3px 7px 1px #969eb6;
+  margin-left: 20px;
+}
+
+.page-title-bar-icon-form {
+  margin-left: 10px;
+}
+
+.ganti-foto {
+  width: 135px;
+  border-radius: 100%;
+  border: 2px #ddd;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-app-page {
+  width: 195px;
+}
